@@ -13,13 +13,18 @@ merged= pd.merge(dataset, dataset2, on ="App ID")
 #print(dataset)
 
 def prompt():
+    """
+    asks the user for the genre and price point of the game they're looking for
+    """
     genre = input("What genre of game are you looking for?")
 #   price= input("What price point are you looking for?")
     return genre
 
 
 def recommend():
-
+    """
+    Recommends the game by filtering for the tags and prices
+    """
     recommendation = dataset[dataset['Tags'].str.contains(genre, na=False) ]
 
     print("Your personalized recomendation is: ")
