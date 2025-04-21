@@ -2,8 +2,13 @@
 import pandas as pd
 import numpy as np
 
-dataset =pd.read_csv('games.csv',usecols=[3,6,10 ],delim_whitespace=True)
-dataset.columns= ["Title", "reviews" , "Tags"]
+dataset =pd.read_csv('games.csv',usecols=[1, 3,6,10 ],delim_whitespace=True)
+dataset2=pd.read_csv('games.csv',usecols=[1,2,10 ],delim_whitespace=True)
+
+dataset.columns= ["App ID", "Title", "reviews" , "Tags"]
+dataset2.columns=["App ID", "Title", "Price"]
+
+merged= pandas.merge(dataset, dataset2, on ="App ID")
 
 #print(dataset)
 
