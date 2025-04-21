@@ -1,0 +1,30 @@
+
+import pandas as pd
+import numpy as np
+
+dataset =pd.read_csv('games.csv',usecols=[3,6,10 ],delim_whitespace=True)
+dataset.columns= ["Title", "reviews" , "Tags"]
+
+#print(dataset)
+
+def prompt():
+    genre = input("What genre of game are you looking for?")
+#   price= input("What price point are you looking for?")
+    return genre
+
+
+def recommend():
+
+    recommendation = dataset[dataset['Tags'].str.contains(genre, na=False) ]
+
+    print("Your personalized recomendation is: ")
+    print("recommendation")
+
+def main():
+    genre= prompt()
+    recommend(genre)
+
+
+if __name__=="__main__":
+    main()
+
